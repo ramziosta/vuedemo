@@ -1,9 +1,11 @@
 <script setup>
-import Data from '../Data.json'
+import Data from '../data.json'
 import DataItem from './DataItem.vue';
-import { ref , defineProps} from 'vue';
+import { ref , defineProps, onMounted} from 'vue';
 import {RouterLink} from "vue-router";
-const data = ref(Data);
+import axios from 'axios';
+
+const data = ref([]);
 defineProps({
   limit: {
       type: Number,
@@ -12,6 +14,15 @@ defineProps({
   showButton: {
     type: Boolean,
     default: false
+  }
+})
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/data');
+    data.value = response.data;
+  } catch (error) {
+    console.error(error);
   }
 })
 </script>

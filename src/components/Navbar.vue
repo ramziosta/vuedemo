@@ -26,15 +26,20 @@ const isActiveLink = (path) => {
             <div class="flex space-x-2">
               <RouterLink
                   to="/"
-                  class="text-white bg-green-900 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  :class="[
+                      isActiveLink('/')
+                      ? 'bg-green-900'
+                      : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md'
+                      ]"
               >Home</RouterLink>
               <RouterLink
                   to="/data"
-                  class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  :class="[isActiveLink('/data') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md']"
               >Data</RouterLink>
               <RouterLink
                   to="/data/add"
-                  class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  :class="[isActiveLink('/data/add') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md'
+                      ]"
               >Add Data</RouterLink>
             </div>
           </div>
