@@ -1,6 +1,7 @@
 <script setup>
 import {defineProps} from "vue";
 import Card from "./Card.vue";
+import {RouterLink} from "vue-router";
 defineProps({
   title:{
     type: String,
@@ -28,24 +29,24 @@ defineProps({
           <p class="mt-2 mb-4">
             Browse our Data and start your work today
           </p>
-          <a
-              href="data.html"
+          <RouterLink
+              to="/data"
               class="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
           >
             Browse Data
-          </a>
+          </RouterLink>
         </Card>
         <Card bg="bg-green-100">
           <h2 class="text-2xl font-bold">For Managers</h2>
           <p class="mt-2 mb-4">
             Add more data to your dashboard
           </p>
-          <a
-              href="add-data.html"
+          <RouterLink
+              to="/data/add"
               class="inline-block bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600"
           >
             Add Data
-          </a>
+          </RouterLink>
         </Card>
       </div>
     </div>

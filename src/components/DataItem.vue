@@ -38,7 +38,8 @@ const toggleFullDescription = () => {
     <p class="text-gray-600 text-bold">{{ item.company.name }}</p>
     <p class="text-gray-600">{{ item.company.description }}</p>
     <p class="text-gray-600">{{ item.company.contactEmail }}</p>
-    <p class="text-gray-600">{{ item.company.contactPhone }}</p>
+    <p class="text-gray-600 mb-4 ">{{ item.company.contactPhone }}</p>
+    <RouterLink :to="`/data/${item.id}`" class="h-[36px] bg-green-500 hover:bg-green-600 text-white rounded-lg text-center text-sm px-4 py-2">View</RouterLink>
   </div>
 </template>
 
