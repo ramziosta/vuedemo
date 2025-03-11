@@ -1,5 +1,4 @@
 <script setup>
-import {defineProps} from "vue";
 import Card from "./Card.vue";
 import {RouterLink} from "vue-router";
 defineProps({

@@ -1,5 +1,4 @@
 <script setup>
-
 import DataCards from "@/components/DataCards.vue";
 import Hero from "@/components/Hero.vue";
 import FetchedData from "@/components/FetchedData.vue";
