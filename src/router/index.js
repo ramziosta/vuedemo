@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import DataView from '../views/DataView.vue';
 import DataItemView from "@/views/DataItemView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
+import AddDataView from "@/views/AddDataView.vue";
 
 
 const router = createRouter({
@@ -23,6 +24,11 @@ const router = createRouter({
         name: 'DataItemView',
         component: DataItemView,
       },
+    {
+      path:'/data/add',
+      name:"AddDataView",
+      component:AddDataView
+    },
     {
       path:'/:catchAll(.*)',
       name: 'NotFound',
