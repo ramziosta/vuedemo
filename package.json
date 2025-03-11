@@ -8,12 +8,16 @@
     "build": "vite build",
     "preview": "vite preview",
     "build:css": "postcss src/index.css -o dist/output.css --watch",
-    "server": "json-server -w src/data.json --port 8000"
+    "server": "json-server -w src/data.json --port 8000",
+    "start": "node server.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "json-server": "^1.0.0-beta.3",
+    "mongoose": "^8.12.1",
     "primeicons": "^7.0.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
@@ -27,5 +31,18 @@
     "tailwindcss": "^4.0.12",
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2"
-  }
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite.",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramziosta/vuedemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramziosta/vuedemo/issues"
+  },
+  "homepage": "https://github.com/ramziosta/vuedemo#readme"
 }
