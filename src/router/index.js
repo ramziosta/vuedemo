@@ -4,6 +4,7 @@ import DataView from '../views/DataView.vue';
 import DataItemView from "@/views/DataItemView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 import AddDataView from "@/views/AddDataView.vue";
+import EditDataView from "@/views/EditDataView.vue";
 
 
 const router = createRouter({
@@ -28,6 +29,11 @@ const router = createRouter({
       path:'/data/add',
       name:"AddDataView",
       component:AddDataView
+    },
+    {
+      path:'/data/edit/:id',
+      name:"EditDataView",
+      component:EditDataView
     },
     {
       path:'/:catchAll(.*)',

@@ -1,9 +1,15 @@
 <script setup>
 import {onMounted, reactive, ref} from "vue";
-import {useRoute, RouterLink} from "vue-router";
+import {useRoute, RouterLink, useRouter} from "vue-router";
 import axios from "axios";
+import {useToast} from "vue-toastification";
 const route =  useRoute();
+const router = useRouter();
+
+const toast = useToast();
+
 const jobId =  route.params.id;
+
 defineProps({
   item:{
     type: Object,
@@ -16,6 +22,18 @@ const state = reactive({
   error: null
 });
 
+const deleteData = async () => {
+    try {
+      const confirm = window.confirm('Are you sure you want to delete this data?');
+      if(confirm){
+      await axios.delete(`/api/data/${jobId}`);
+      toast.success('Data deleted successfully');
+      await router.push('/data');}
+    } catch (error) {
+      console.error(error);
+      toast.error('Error deleting data');
+    }
+}
 onMounted(async () => {
   try {
     const response = await axios.get(`/api/data/${jobId}`);
@@ -105,11 +123,12 @@ onMounted(async () => {
           <div class="bg-white p-6 rounded-lg shadow-md mt-6">
             <h3 class="text-xl font-bold mb-6">Manage Job</h3>
             <RouterLink
-                :to="`/jobs/edit/${state.singleListing.id}`"
+                :to="`/data/edit/${state.singleListing.id}`"
                 class="bg-green-500 hover:bg-green-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
             >Edit Job</RouterLink
             >
             <button
+                @click="deleteData"
                 class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
             >
               Delete Job

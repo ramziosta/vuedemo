@@ -1,10 +1,15 @@
 <script setup>
-import {reactive} from "vue";
+import {reactive, onMounted} from "vue";
+import {useRoute} from "vue-router";
 import axios from "axios";
-import router from "@/router/index.js";
 import {useToast} from "vue-toastification";
+import router from "../router/index.js";
+
+const route = useRoute();
+const jobId = route.params.id;
+
 const form = reactive({
-  type: "Part-Time",
+  type: "Full-Time",
   name: "",
   description: "",
   salary: "",
@@ -17,10 +22,38 @@ const form = reactive({
   },
 });
 
+const state = reactive({
+  data:{},
+  isLoading: false,
+  error: null,
+});
+
 const toast = useToast();
+onMounted(async () => {
+  try {
+    const response = await axios.get(`/api/data/${jobId}`);
+    state.data = response.data;
+    form.type = state.data.type;
+    form.name = state.data.title;
+    form.description = state.data.description;
+    form.salary = state.data.salary;
+    form.location = state.data.location;
+    form.company.name = state.data.company.name;
+    form.company.description = state.data.company.description;
+    form.company.contactEmail = state.data.company.contactEmail;
+    form.company.contactPhone = state.data.company.contactPhone;
+
+  } catch (error) {
+    console.error(error.message);
+  }
+  finally {
+    state.isLoading = false;
+  }
+});
+
 const submitForm = async() => {
   console.log(form);
-  const newData = {
+  const updatedData = {
     type: form.type,
     name: form.name,
     description: form.description,
@@ -34,9 +67,9 @@ const submitForm = async() => {
     },
   };
   try {
-    const response = await axios.post("/api/data", newData);
+    const response = await axios.put(`/api/data/${jobId}`, updatedData);
 
-    toast.success("Data added successfully!", {
+    toast.success("Data updated successfully!", {
       timeout: 3000, // 3 seconds
     });
 
@@ -47,11 +80,11 @@ const submitForm = async() => {
 
     console.log("Response:", response);
   } catch (error) {
-    console.error("Error submitting form:", error);
-    toast.error("Error adding data! Please try again.");
+    console.error("Error updating form:", error);
+    toast.error("Error updating data! Please try again.");
   }
-
 };
+
 </script>
 
 <template>
@@ -61,7 +94,7 @@ const submitForm = async() => {
           class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0"
       >
         <form @submit.prevent="submitForm">
-          <h2 class="text-3xl text-center font-semibold mb-6">Add Job</h2>
+          <h2 class="text-3xl text-center font-semibold mb-6">Edit Job</h2>
 
           <div class="mb-4">
             <label for="type" class="block text-gray-700 font-bold mb-2"
@@ -212,7 +245,7 @@ const submitForm = async() => {
                 class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                 type="submit"
             >
-              Add Job
+              Edit Job
             </button>
           </div>
         </form>
