@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "build:css": "postcss src/index.css -o dist/output.css --watch",
-    "server": "json-server -w src/data.json --port 3000"
+    "server": "json-server -w src/data.json --port 8000"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",

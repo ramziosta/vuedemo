@@ -18,7 +18,7 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`http://localhost:3000/data/${jobId}`);
+    const response = await axios.get(`/api/data/${jobId}`);
     console.log('Response data:', response.data); // Add this line
     state.singleListing = response.data;
   } catch (error) {

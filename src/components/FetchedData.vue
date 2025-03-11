@@ -24,7 +24,7 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3000/data');
+    const response = await axios.get('/api/data');
     state.receivedData = response.data;
   } catch (error) {
     console.error(error);
