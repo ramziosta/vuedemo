@@ -3,6 +3,7 @@ import {reactive} from "vue";
 import axios from "axios";
 import router from "@/router/index.js";
 import {useToast} from "vue-toastification";
+
 const form = reactive({
   type: "Part-Time",
   name: "",
@@ -18,7 +19,7 @@ const form = reactive({
 });
 
 const toast = useToast();
-const submitForm = async() => {
+const submitForm = async () => {
   console.log(form);
   const newData = {
     type: form.type,
@@ -61,7 +62,7 @@ const submitForm = async() => {
           class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0"
       >
         <form @submit.prevent="submitForm">
-          <h2 class="text-3xl text-center font-semibold mb-6">Add Job</h2>
+          <h2 class="text-3xl text-center font-semibold mb-6">Add Trader</h2>
 
           <div class="mb-4">
             <label for="type" class="block text-gray-700 font-bold mb-2"
@@ -82,7 +83,7 @@ const submitForm = async() => {
 
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2"
-            >Job Listing Name</label
+            >Trader's Name</label
             >
             <input
                 v-model="form.name"

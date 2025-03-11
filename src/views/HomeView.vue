@@ -7,7 +7,7 @@ import FetchedData from "@/components/FetchedData.vue";
 <template>
   <Hero title="Data Dashboard" description="Fast visualization from the Database"/>
   <DataCards />
-  <FetchedData  :limit="2" :showButton="true"/>
+  <FetchedData  :limit="4" :showButton="true"/>
 </template>
 
 <style scoped>

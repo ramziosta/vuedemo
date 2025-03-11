@@ -19,7 +19,7 @@ const isActiveLink = (path) => {
           <RouterLink class="flex flex-shrink-0 items-center mr-4" href="index.html">
             <img class="h-10 w-auto" :src="logo" alt="logo" />
             <span class="hidden md:block text-white text-2xl font-bold ml-2"
-            >Dashboard Data</span
+            >Traders Dashboard</span
             >
           </RouterLink>
           <div class="md:ml-auto">
@@ -35,12 +35,12 @@ const isActiveLink = (path) => {
               <RouterLink
                   to="/data"
                   :class="[isActiveLink('/data') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md']"
-              >Data</RouterLink>
+              >Traders</RouterLink>
               <RouterLink
                   to="/data/add"
                   :class="[isActiveLink('/data/add') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md'
                       ]"
-              >Add Data</RouterLink>
+              >Add Traders</RouterLink>
             </div>
           </div>
         </div>

@@ -55,7 +55,7 @@ onMounted(async () => {
           to="/data"
           class="text-green-500 hover:text-green-600 flex items-center"
       >
-        <i class="pi pi-arrow-left pr-2 "></i> Back to Job Listings
+        <i class="pi pi-arrow-left pr-2 "></i> Back to trader's listings
       </RouterLink>
     </div>
   </section>
@@ -68,7 +68,7 @@ onMounted(async () => {
               class="bg-white p-6 rounded-lg shadow-md text-center md:text-left"
           >
             <div class="text-gray-500 mb-4">{{state.singleListing.type}}</div>
-            <h1 class="text-3xl font-bold mb-4">{{state.singleListing.title}}</h1>
+            <h1 class="text-3xl font-bold mb-4">{{state.singleListing.name}}</h1>
             <div
                 class="text-gray-500 mb-4 flex align-middle justify-center md:justify-start"
             >
@@ -81,7 +81,7 @@ onMounted(async () => {
 
           <div class="bg-white p-6 rounded-lg shadow-md mt-6">
             <h3 class="text-green-800 text-lg font-bold mb-6">
-              Job Description
+              Trader's Bio
             </h3>
 
             <p class="mb-4">
@@ -121,17 +121,17 @@ onMounted(async () => {
 
           <!-- Manage -->
           <div class="bg-white p-6 rounded-lg shadow-md mt-6">
-            <h3 class="text-xl font-bold mb-6">Manage Job</h3>
+            <h3 class="text-xl font-bold mb-6">Manage Trader Listing</h3>
             <RouterLink
                 :to="`/data/edit/${state.singleListing.id}`"
                 class="bg-green-500 hover:bg-green-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-            >Edit Job</RouterLink
+            >Edit Trader</RouterLink
             >
             <button
                 @click="deleteData"
                 class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
             >
-              Delete Job
+              Delete Trader
             </button>
           </div>
         </aside>

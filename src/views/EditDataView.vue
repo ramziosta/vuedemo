@@ -6,7 +6,7 @@ import {useToast} from "vue-toastification";
 import router from "../router/index.js";
 
 const route = useRoute();
-const jobId = route.params.id;
+const traderId = route.params.id;
 
 const form = reactive({
   type: "Full-Time",
@@ -31,10 +31,10 @@ const state = reactive({
 const toast = useToast();
 onMounted(async () => {
   try {
-    const response = await axios.get(`/api/data/${jobId}`);
+    const response = await axios.get(`/api/data/${traderId}`);
     state.data = response.data;
     form.type = state.data.type;
-    form.name = state.data.title;
+    form.name = state.data.name;
     form.description = state.data.description;
     form.salary = state.data.salary;
     form.location = state.data.location;
@@ -67,7 +67,7 @@ const submitForm = async() => {
     },
   };
   try {
-    const response = await axios.put(`/api/data/${jobId}`, updatedData);
+    const response = await axios.put(`/api/data/${traderId}`, updatedData);
 
     toast.success("Data updated successfully!", {
       timeout: 3000, // 3 seconds

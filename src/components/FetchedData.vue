@@ -4,6 +4,7 @@ import {ref, reactive, onMounted} from 'vue';
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 import {RouterLink} from "vue-router";
 import axios from 'axios';
+import Market from "@/components/Market.vue";
 
 defineProps({
   limit: {
@@ -36,9 +37,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1 class="text-white bg-green-700 text-3xl font-bold flex justify-center py-10">Api-fetched Data</h1>
+  <h1 class="text-white bg-green-700 text-3xl font-bold flex justify-center py-10">ExchangeRate Api-fetched Data</h1>
+    <Section class="bg-blue-50 flex justify-center items-center py-6">
+    <Market />
+  </Section>
+
   <section class="bg-blue-50 px-4 py-10">
-    <h2 class="text-3xl font-bold mb-6 text-center">Data</h2>
+    <h2 class="text-3xl font-bold mb-6 text-center">Current Traders Listing</h2>
     <div v-if="state.isLoading" class="flex justify-center">
       <PulseLoader color="#00ff00"/>
     </div>
@@ -53,7 +58,7 @@ onMounted(async () => {
     <RouterLink
         to="/data"
         class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-    >View All Data
+    >View All Traders
     </RouterLink
     >
   </section>
