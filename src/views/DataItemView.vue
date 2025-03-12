@@ -26,7 +26,7 @@ const deleteData = async () => {
     try {
       const confirm = window.confirm('Are you sure you want to delete this data?');
       if(confirm){
-      await axios.delete(`/api/data/${jobId}`);
+      await axios.delete(`/api/traders/${jobId}`);
       toast.success('Data deleted successfully');
       await router.push('/data');}
     } catch (error) {
