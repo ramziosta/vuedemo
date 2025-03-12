@@ -36,7 +36,7 @@ const deleteData = async () => {
 }
 onMounted(async () => {
   try {
-    const response = await axios.get(`/api/data/${jobId}`);
+    const response = await axios.get(`/api/traders/${jobId}`);
     console.log('Response data:', response.data); // Add this line
     state.singleListing = response.data;
   } catch (error) {

@@ -2,12 +2,18 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import router  from './backend/routes/router.js';
-
+import cors from 'cors';
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+  };
 
 
 const app = express();
 
-
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/traders', router);
 

@@ -1,18 +1,18 @@
 import mongoose from 'mongoose';
 
 const traderSchema = new mongoose.Schema({
-    id: { type: String, required: true },
-    name: { type: String, required: true },
-    type: { type: String, required: true },
-    description: { type: String, required: true },
-    location: { type: String, required: true },
-    salary: { type: String, required: true },
+    id: { type: String, },
+    name: { type: String, },
+    type: { type: String, },
+    description: { type: String, },
+    location: { type: String, },
+    salary: { type: String, },
     company: {
-        name: { type: String, required: true },
-        location: { type: String, required: true },
-        description: { type: String, required: true },
-        contactEmail: { type: String, required: true },
-        contactPhone: { type: String, required: true },
+        name: { type: String, },
+        location: { type: String, },
+        description: { type: String, },
+        contactEmail: { type: String, },
+        contactPhone: { type: String, },
     },
 }, { timestamps: true });
 

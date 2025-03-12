@@ -1,11 +1,12 @@
 import express from 'express';
 const router = express.Router();
 
-import { getAllTraders, createTrader, updateTrader, deleteTrader } from '../controllers/TradersController.js';
+import { getAllTraders, getOneTrader, createTrader, updateTrader, deleteTrader } from '../controllers/TradersController.js';
 
 router.get('/', getAllTraders);
-router.post('/data', createTrader);
-router.put('/data/:id', updateTrader);
-router.delete('/data/:id', deleteTrader);
+router.get('/:id', getOneTrader);
+router.post('/', createTrader);
+router.put('/:id', updateTrader);
+router.delete('/:id', deleteTrader);
 
 export default router;

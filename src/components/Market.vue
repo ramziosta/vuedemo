@@ -68,7 +68,7 @@ const formatRate = (rate) => {
   <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-4 cursor-pointer ">
     <!-- Header -->
     <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold text-gray-800">Exchange Rates</h3>
+      <h3 class="text-lg font-semibold text-gray-800 m-auto">Exchange Rates</h3>
       <div class="flex items-center">
         <span v-if="!state.isLoading" class="text-xs text-gray-500">{{ lastUpdated }}</span>
       </div>

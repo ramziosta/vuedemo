@@ -39,10 +39,6 @@ onMounted(async () => {
 
 <template>
   <h1 class="text-white bg-green-700 text-3xl font-bold flex justify-center py-10">ExchangeRate Api-fetched Data</h1>
-    <Section class="bg-blue-50 flex justify-center items-center py-6">
-    <Market />
-  </Section>
-
   <section class="bg-blue-50 px-4 py-10">
     <h2 class="text-3xl font-bold mb-6 text-center">Current Traders Listing</h2>
     <div v-if="state.isLoading" class="flex justify-center">

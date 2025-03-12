@@ -67,16 +67,16 @@ const submitForm = async() => {
     },
   };
   try {
-    const response = await axios.put(`/api/data/${traderId}`, updatedData);
+    const response = await axios.put(`/api/traders/${traderId}`, updatedData);
 
     toast.success("Data updated successfully!", {
       timeout: 3000, // 3 seconds
     });
 
-    if (response.data?.id) {
-      await router.push(`/data/${response.data.id}`);
-      console.log("Navigation successful:", response.data.id);
-    }
+    // if (response.data?.id) {
+    //   await router.push(`/data/${response.data.id}`);
+    //   console.log("Navigation successful:", response.data.id);
+    // }
 
     console.log("Response:", response);
   } catch (error) {
@@ -104,7 +104,7 @@ const submitForm = async() => {
                     id="type"
                     name="type"
                     class="border rounded w-full py-2 px-3"
-                    required
+
             >
               <option value="Full-Time">Full-Time</option>
               <option value="Part-Time">Part-Time</option>
@@ -115,7 +115,7 @@ const submitForm = async() => {
 
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2"
-            >Job Listing Name</label
+            >Trader's Name</label
             >
             <input
                 v-model="form.name"
@@ -123,8 +123,8 @@ const submitForm = async() => {
                 id="name"
                 name="name"
                 class="border rounded w-full py-2 px-3 mb-2"
-                placeholder="eg. Beautiful Apartment In Miami"
-                required
+                placeholder="Miss MoneyPenny"
+
             />
           </div>
           <div class="mb-4">
@@ -138,7 +138,7 @@ const submitForm = async() => {
                       name="description"
                       class="border rounded w-full py-2 px-3"
                       rows="4"
-                      placeholder="Add any job duties, expectations, requirements, etc"
+                      placeholder="Add any job experiences, etc"
             ></textarea>
           </div>
 
@@ -150,7 +150,7 @@ const submitForm = async() => {
                     id="salary"
                     name="salary"
                     class="border rounded w-full py-2 px-3"
-                    required
+
             >
               <option value="Under $50K">under $50K</option>
               <option value="$50K - $60K">$50 - $60K</option>
@@ -176,7 +176,7 @@ const submitForm = async() => {
                    name="location"
                    class="border rounded w-full py-2 px-3 mb-2"
                    placeholder="Company Location"
-                   required
+
             />
           </div>
 
@@ -221,8 +221,8 @@ const submitForm = async() => {
                    id="contact_email"
                    name="contact_email"
                    class="border rounded w-full py-2 px-3"
-                   placeholder="Email address for applicants"
-                   required
+                   placeholder="Email address for trader"
+
             />
           </div>
           <div class="mb-4">
@@ -236,7 +236,7 @@ const submitForm = async() => {
                    id="contact_phone"
                    name="contact_phone"
                    class="border rounded w-full py-2 px-3"
-                   placeholder="Optional phone for applicants"
+                   placeholder="Phone for trader"
             />
           </div>
 
@@ -245,7 +245,7 @@ const submitForm = async() => {
                 class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                 type="submit"
             >
-              Edit Job
+              Edit Trader
             </button>
           </div>
         </form>

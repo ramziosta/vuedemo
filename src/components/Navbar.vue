@@ -37,6 +37,10 @@ const isActiveLink = (path) => {
                   :class="[isActiveLink('/data') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md']"
               >Traders</RouterLink>
               <RouterLink
+                  to="/APIView"
+                  :class="[isActiveLink('/APIView') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md']"
+              >ExchangeRateApi</RouterLink>
+              <RouterLink
                   to="/data/add"
                   :class="[isActiveLink('/data/add') ? 'bg-green-900' : 'hover:bg-gray-900 ',' hover:text-white', 'text-white', 'px-3', 'py-2', 'rounded-md'
                       ]"

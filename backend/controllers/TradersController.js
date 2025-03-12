@@ -10,6 +10,19 @@ export const getAllTraders = async (req, res) => {
     }
 };
 
+// Get a single trader by ID
+export const getOneTrader = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const trader = await Trader.findOne({ id });
+        if (!trader) {
+            return res.status(404).json({ message: 'Trader not found' });
+        }
+        res.json(trader);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 // Create a new trader
 export const createTrader = async (req, res) => {
     const { id, name, type, description, location, salary, company } = req.body;
@@ -64,7 +77,7 @@ export const deleteTrader = async (req, res) => {
             return res.status(404).json({ message: 'Trader not found' });
         }
 
-        res.status(204).send();
+        res.status(200).json({ message: 'Trader deleted successfully', deletedTrader });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
