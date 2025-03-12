@@ -7,27 +7,12 @@ const props = defineProps({
   }
 })
 
-const showMore = ref(false);
-
-const truncatedDescription = computed(() => {
-  const fullDescription = props.item.description;
-  if (fullDescription.length > 100 && !showMore.value) {
-    return fullDescription.substring(0, 100) + '...';
-  }
-  return fullDescription;
-});
-
-const toggleFullDescription = () => {
-  showMore.value = !showMore.value;
-};
-
 </script>
 
 <template>
   <div class="bg-white shadow-md rounded-lg p-4">
     <h2 class="text-xl font-bold">{{ item.name }}</h2>
-    <p class="text-gray-600 text-sm mt-2" >{{ truncatedDescription }} </p>
-    <button @click="toggleFullDescription" class="text-blue-500 hover:underline">{{showMore ? "Less" : "More"}}</button>
+    <p class="text-gray-600 text-sm mt-2" >{{ item.description }} </p>
     <p class="text-gray-600">{{ item.type }}</p>
     <div class="flex items-center mb-4">
       <i class="pi pi-map-marker text-orange-500 pr-1"></i>

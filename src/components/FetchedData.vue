@@ -9,7 +9,7 @@ import Market from "@/components/Market.vue";
 defineProps({
   limit: {
     type: Number,
-    default: 3
+    default: 4
   },
   showButton: {
     type: Boolean,
@@ -25,12 +25,13 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/data');
+    const response = await axios.get('/api/traders');
     state.receivedData = response.data;
+    console.log('Data received:', response.data);
   } catch (error) {
-    console.error(error);
-  }
-  finally {
+    console.error('Error fetching data:', error);
+    state.error = "Failed to load data from server";
+  } finally {
     state.isLoading = false;
   }
 })

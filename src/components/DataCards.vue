@@ -26,7 +26,7 @@ defineProps({
         <Card>
           <h2 class="text-2xl font-bold">For Employees</h2>
           <p class="mt-2 mb-4">
-            Browse our Data and start trading today
+            Browse <b class="text-red-500 text-lg">ExchangeRate-API</b> data and start trading today
           </p>
           <RouterLink
               to="/APIView"
@@ -38,7 +38,7 @@ defineProps({
         <Card bg="bg-green-100">
           <h2 class="text-2xl font-bold">For Managers</h2>
           <p class="mt-2 mb-4">
-            Add more traders to your dashboard
+            Add more traders to your <b class="text-red-500 text-lg">MongoDB Database</b> and manage the dashboard
           </p>
           <RouterLink
               to="/data/add"

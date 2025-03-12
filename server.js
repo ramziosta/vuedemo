@@ -13,7 +13,7 @@ app.use('/traders', router);
 
 
 const DB_URI = process.env.MONGODB_URI;
-const PORT = 3000;
+const PORT = 8000;
 
 // Connect to MongoDB
 mongoose.connect(DB_URI)
